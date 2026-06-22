@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mohamad Ibrahim Adham - CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --kia-red: #CC0000;
+            --kia-red-dark: #990000;
+            --kia-red-light: #ff1a1a;
+            --kia-black: #1a1a1a;
+            --kia-gray: #8a8a8a;
+            --kia-silver: #c0c0c0;
+            --kia-light: #f5f5f5;
+            --kia-white: #ffffff;
+            --shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+            --shadow-hover: 0 20px 60px rgba(204, 0, 0, 0.20);
+            --radius: 16px;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f0f0;
+            color: #222;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e0e0e0;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--kia-red);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--kia-red-dark);
+        }
+
+        /* ===== PRELOADER ===== */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: var(--kia-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        #preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        #preloader .loader-car {
+            font-size: 4rem;
+            color: var(--kia-red);
+            animation: carDrive 1.2s ease-in-out infinite alternate;
+        }
+        #preloader .loader-text {
+            color: #fff;
+            font-weight: 600;
+            letter-spacing: 4px;
+            margin-top: 16px;
+            font-size: 1.1rem;
+            opacity: 0.7;
+        }
+        @keyframes carDrive {
+            0% {
+                transform: translateX(-40px) scale(1);
+            }
+            100% {
+                transform: translateX(40px) scale(1.05);
+            }
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            padding: 14px 40px;
+            background: rgba(26, 26, 26, 0.92);
+            backdrop-filter: blur(14px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: var(--transition);
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.25);
+        }
+        nav .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #fff;
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: -0.5px;
+        }
+        nav .logo i {
+            color: var(--kia-red);
+            font-size: 1.7rem;
+        }
+        nav .logo span {
+            color: var(--kia-red);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+        nav ul li a {
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            letter-spacing: 0.3px;
+            position: relative;
+        }
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--kia-red);
+            transition: var(--transition);
+        }
+        nav ul li a:hover {
+            color: #fff;
+        }
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        nav ul li a i {
+            margin-right: 6px;
+            font-size: 0.85rem;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 6px;
+        }
+        .nav-toggle span {
+            width: 26px;
+            height: 2.5px;
+            background: #fff;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 40px 80px;
+            background: linear-gradient(145deg, var(--kia-black) 0%, #2a2a2a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(204, 0, 0, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(204, 0, 0, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        /* animated road lines */
+        .road-lines {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            overflow: hidden;
+            opacity: 0.3;
+        }
+        .road-lines .line {
+            position: absolute;
+            top: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--kia-red);
+            border-radius: 4px;
+            animation: roadMove 2s linear infinite;
+        }
+        .road-lines .line:nth-child(1) {
+            left: -60px;
+            animation-delay: 0s;
+        }
+        .road-lines .line:nth-child(2) {
+            left: -60px;
+            animation-delay: 0.4s;
+        }
+        .road-lines .line:nth-child(3) {
+            left: -60px;
+            animation-delay: 0.8s;
+        }
+        .road-lines .line:nth-child(4) {
+            left: -60px;
+            animation-delay: 1.2s;
+        }
+        .road-lines .line:nth-child(5) {
+            left: -60px;
+            animation-delay: 1.6s;
+        }
+        @keyframes roadMove {
+            0% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(calc(100vw + 80px));
+                opacity: 0.2;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.6rem;
+            font-weight: 900;
+            color: #fff;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+        .hero-text h1 .highlight {
+            color: var(--kia-red);
+            position: relative;
+        }
+        .hero-text h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: var(--kia-red);
+            opacity: 0.25;
+            border-radius: 4px;
+        }
+        .hero-text .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 18px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+        .hero-text .subtitle i {
+            color: var(--kia-red);
+            margin-right: 8px;
+        }
+        .hero-text .tagline {
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .hero-text .tagline span {
+            background: rgba(204, 0, 0, 0.15);
+            color: var(--kia-red);
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(204, 0, 0, 0.2);
+            backdrop-filter: blur(4px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 32px;
+        }
+        .hero-stats .stat {
+            display: flex;
+            flex-direction: column;
+        }
+        .hero-stats .stat .num {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fff;
+        }
+        .hero-stats .stat .num span {
+            color: var(--kia-red);
+        }
+        .hero-stats .stat .label {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-avatar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .hero-avatar .avatar-circle {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--kia-red), var(--kia-red-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+            box-shadow: 0 30px 80px rgba(204, 0, 0, 0.25);
+        }
+        .hero-avatar .avatar-circle i {
+            font-size: 8rem;
+            color: #fff;
+            opacity: 0.9;
+        }
+        .hero-avatar .avatar-circle .ring {
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            border: 2px solid rgba(204, 0, 0, 0.3);
+            animation: spinRing 20s linear infinite;
+        }
+        .hero-avatar .avatar-circle .ring:nth-child(2) {
+            inset: -18px;
+            border-color: rgba(204, 0, 0, 0.15);
+            animation-duration: 30s;
+            animation-direction: reverse;
+        }
+
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-16px);
+            }
+        }
+        @keyframes spinRing {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* floating KIA badge */
+        .kia-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: var(--kia-red);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            box-shadow: 0 8px 30px rgba(204, 0, 0, 0.4);
+            animation: pulseBadge 2.5s ease-in-out infinite;
+        }
+        @keyframes pulseBadge {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.06);
+            }
+        }
+
+        /* ===== SECTION COMMON ===== */
+        section {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 56px;
+            position: relative;
+        }
+        .section-header .sub {
+            color: var(--kia-red);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            display: inline-block;
+            background: rgba(204, 0, 0, 0.08);
+            padding: 4px 18px;
+            border-radius: 30px;
+            margin-bottom: 10px;
+        }
+        .section-header h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: var(--kia-black);
+            letter-spacing: -0.5px;
+        }
+        .section-header h2 i {
+            color: var(--kia-red);
+            margin-right: 10px;
+        }
+        .section-header .line {
+            width: 70px;
+            height: 4px;
+            background: var(--kia-red);
+            margin: 14px auto 0;
+            border-radius: 4px;
+            position: relative;
+        }
+        .section-header .line::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -6px;
+            width: 30px;
+            height: 4px;
+            background: var(--kia-red-dark);
+            border-radius: 4px;
+        }
+
+        /* ===== CARDS ===== */
+        .card {
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 32px 36px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(204, 0, 0, 0.15);
+        }
+
+        /* ===== EDUCATION ===== */
+        .education-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 28px;
+        }
+        .edu-card .edu-icon {
+            font-size: 2.2rem;
+            color: var(--kia-red);
+            margin-bottom: 12px;
+        }
+        .edu-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--kia-black);
+            margin-bottom: 4px;
+        }
+        .edu-card .institute {
+            color: var(--kia-gray);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .edu-card .date {
+            display: inline-block;
+            background: rgba(204, 0, 0, 0.07);
+            color: var(--kia-red);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 2px 14px;
+            border-radius: 20px;
+            margin: 8px 0 10px;
+        }
+        .edu-card .cgpa {
+            font-weight: 700;
+            color: var(--kia-black);
+            font-size: 1.05rem;
+        }
+        .edu-card .cgpa span {
+            color: var(--kia-red);
+        }
+        .edu-card .result {
+            font-weight: 600;
+            color: var(--kia-black);
+            font-size: 0.95rem;
+        }
+
+        /* ===== PROJECTS / ACHIEVEMENTS ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+        }
+        .project-card .project-icon {
+            font-size: 1.8rem;
+            color: var(--kia-red);
+            margin-bottom: 8px;
+        }
+        .project-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--kia-black);
+        }
+        .project-card p {
+            color: #555;
+            font-size: 0.92rem;
+            margin-top: 6px;
+        }
+        .project-card .tech-tag {
+            display: inline-block;
+            background: rgba(204, 0, 0, 0.07);
+            color: var(--kia-red);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 2px 14px;
+            border-radius: 20px;
+            margin-top: 10px;
+        }
+
+        /* ===== SKILLS ===== */
+        .skills-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .skill-category h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--kia-black);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .skill-category h4 i {
+            color: var(--kia-red);
+        }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .skill-tags .tag {
+            background: #f0f0f0;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: #333;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+        .skill-tags .tag:hover {
+            background: var(--kia-red);
+            color: #fff;
+            transform: scale(1.04);
+            border-color: var(--kia-red);
+            box-shadow: 0 8px 25px rgba(204, 0, 0, 0.25);
+        }
+
+        /* ===== VOLUNTEER ===== */
+        .volunteer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+        }
+        .vol-card {
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+        }
+        .vol-card .vol-icon {
+            font-size: 1.6rem;
+            color: var(--kia-red);
+            min-width: 44px;
+            text-align: center;
+            margin-top: 2px;
+        }
+        .vol-card h4 {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--kia-black);
+        }
+        .vol-card p {
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        /* ===== LANGUAGES ===== */
+        .lang-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 28px;
+        }
+        .lang-card {
+            text-align: center;
+            padding: 28px 20px;
+        }
+        .lang-card i {
+            font-size: 2.6rem;
+            color: var(--kia-red);
+            margin-bottom: 10px;
+        }
+        .lang-card h4 {
+            font-weight: 700;
+            color: var(--kia-black);
+        }
+        .lang-card .level {
+            font-size: 0.85rem;
+            color: var(--kia-gray);
+            font-weight: 500;
+        }
+        .lang-card .level .dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--kia-red);
+            margin: 0 3px;
+        }
+        .lang-card .level .dot.gray {
+            background: #d0d0d0;
+        }
+
+        /* ===== CERTIFICATES ===== */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 24px;
+        }
+        .cert-card {
+            text-align: center;
+            padding: 24px 18px;
+        }
+        .cert-card i {
+            font-size: 2.4rem;
+            color: var(--kia-red);
+            margin-bottom: 10px;
+        }
+        .cert-card h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--kia-black);
+        }
+        .cert-card a {
+            display: inline-block;
+            margin-top: 8px;
+            color: var(--kia-red);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .cert-card a:hover {
+            color: var(--kia-red-dark);
+            text-decoration: underline;
+        }
+
+        /* ===== REFERENCES ===== */
+        .ref-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+        }
+        .ref-card {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .ref-card .ref-avatar {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--kia-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1.6rem;
+            flex-shrink: 0;
+        }
+        .ref-card h4 {
+            font-weight: 700;
+            color: var(--kia-black);
+        }
+        .ref-card .title {
+            font-size: 0.85rem;
+            color: var(--kia-gray);
+        }
+        .ref-card .contact {
+            font-size: 0.85rem;
+            color: #555;
+            margin-top: 4px;
+        }
+        .ref-card .contact i {
+            color: var(--kia-red);
+            margin-right: 6px;
+            width: 18px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--kia-black);
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 3px solid var(--kia-red);
+        }
+        footer .footer-logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #fff;
+        }
+        footer .footer-logo span {
+            color: var(--kia-red);
+        }
+        footer .socials {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin: 16px 0 12px;
+        }
+        footer .socials a {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        footer .socials a:hover {
+            color: var(--kia-red);
+            transform: translateY(-3px);
+        }
+        footer .copy {
+            font-size: 0.85rem;
+        }
+        footer .copy i {
+            color: var(--kia-red);
+        }
+
+        /* ===== ANIMATIONS ON SCROLL ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-text .tagline {
+                justify-content: center;
+            }
+            .hero-stats {
+                justify-content: center;
+            }
+            .hero-avatar .avatar-circle {
+                width: 240px;
+                height: 240px;
+            }
+            .hero-avatar .avatar-circle i {
+                font-size: 5.5rem;
+            }
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+            .education-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .lang-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .cert-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 12px 20px;
+            }
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--kia-black);
+                flex-direction: column;
+                padding: 30px 20px;
+                gap: 18px;
+                transform: translateY(-120%);
+                transition: var(--transition);
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+                border-bottom: 2px solid var(--kia-red);
+            }
+            nav ul.open {
+                transform: translateY(0);
+            }
+            .nav-toggle {
+                display: flex;
+            }
+            .hero {
+                padding: 100px 20px 60px;
+            }
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            .hero-avatar .avatar-circle {
+                width: 180px;
+                height: 180px;
+            }
+            .hero-avatar .avatar-circle i {
+                font-size: 4rem;
+            }
+            .hero-stats {
+                gap: 24px;
+                flex-wrap: wrap;
+            }
+            .hero-stats .stat .num {
+                font-size: 1.5rem;
+            }
+
+            section {
+                padding: 50px 20px;
+            }
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .skills-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .volunteer-grid {
+                grid-template-columns: 1fr;
+            }
+            .lang-grid {
+                grid-template-columns: 1fr;
+            }
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+            .ref-grid {
+                grid-template-columns: 1fr;
+            }
+            .card {
+                padding: 24px 20px;
+            }
+            .kia-badge {
+                display: none;
+            }
+            .road-lines {
+                height: 6px;
+            }
+            .road-lines .line {
+                height: 2px;
+                width: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+            .hero-avatar .avatar-circle {
+                width: 140px;
+                height: 140px;
+            }
+            .hero-avatar .avatar-circle i {
+                font-size: 3rem;
+            }
+            nav .logo {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== PRELOADER ===== -->
+    <div id="preloader">
+        <div class="loader-car"><i class="fas fa-car"></i></div>
+        <div class="loader-text">KIA · LOADING</div>
+    </div>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav id="navbar">
+        <div class="logo">
+            <i class="fas fa-car"></i>
+            KIA <span>·</span> CV
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+        <ul id="navMenu">
+            <li><a href="#hero"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+            <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>
+            <li><a href="#skills"><i class="fas fa-cogs"></i> Skills</a></li>
+            <li><a href="#certificates"><i class="fas fa-certificate"></i> Certificates</a></li>
+            <li><a href="#references"><i class="fas fa-address-card"></i> References</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+        <div class="road-lines">
+            <div class="line"></div><div class="line"></div>
+            <div class="line"></div><div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>
+                    Mohamad Ibrahim<br />
+                    Adham <span class="highlight">Bin Roihaidi</span>
+                </h1>
+                <p class="subtitle">
+                    <i class="fas fa-map-pin"></i> Sungai Petani, Kedah &nbsp;·&nbsp;
+                    <i class="fas fa-envelope"></i> ibrahimadham@unimap.edu.my
+                </p>
+                <div class="tagline">
+                    <span><i class="fas fa-microchip"></i> Electronic Network Design</span>
+                    <span><i class="fas fa-network-wired"></i> CCNA Certified</span>
+                    <span><i class="fas fa-database"></i> MySQL · PHP</span>
+                    <span><i class="fas fa-shield-alt"></i> Cybersecurity</span>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="num">3.<span>95</span></div>
+                        <div class="label">Current CGPA</div>
+                    </div>
+                    <div class="stat">
+                        <div class="num">3.<span>52</span></div>
+                        <div class="label">Diploma CGPA</div>
+                    </div>
+                    <div class="stat">
+                        <div class="num">6+</div>
+                        <div class="label">Certifications</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-avatar">
+                <div class="avatar-circle">
+                    <div class="ring"></div>
+                    <div class="ring"></div>
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <div class="kia-badge">
+                    <i class="fas fa-car"></i> KIA · DRIVEN
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EDUCATION ===== -->
+    <section id="education">
+        <div class="section-header reveal">
+            <div class="sub"><i class="fas fa-road"></i> Academic Journey</div>
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            <div class="line"></div>
+        </div>
+        <div class="education-grid">
+            <div class="card edu-card reveal-left">
+                <div class="edu-icon"><i class="fas fa-university"></i></div>
+                <h3>Bachelor in Electronic Engineering Technology</h3>
+                <div class="institute">Universiti Malaysia Perlis</div>
+                <div class="date"><i class="far fa-calendar-alt"></i> Oct 2024 – Now</div>
+                <div class="cgpa">CGPA: <span>3.95</span> (Semester 1)</div>
+            </div>
+            <div class="card edu-card reveal">
+                <div class="edu-icon"><i class="fas fa-laptop-code"></i></div>
+                <h3>Diploma in Computer Engineering</h3>
+                <div class="institute">Universiti Malaysia Perlis</div>
+                <div class="date"><i class="far fa-calendar-alt"></i> Jul 2021 – May 2024</div>
+                <div class="cgpa">CGPA: <span>3.52</span></div>
+            </div>
+            <div class="card edu-card reveal-right">
+                <div class="edu-icon"><i class="fas fa-book-open"></i></div>
+                <h3>Sijil Pelajaran Malaysia (SPM)</h3>
+                <div class="institute">Maahad Tahfiz Profesional</div>
+                <div class="date"><i class="far fa-calendar-alt"></i> Jan 2016 – Mar 2021</div>
+                <div class="result">Result: 4A 1A- 2B+ 4B</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects" style="background:#f8f8f8;border-radius:0;max-width:100%;padding:80px 40px;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <div class="section-header reveal">
+                <div class="sub"><i class="fas fa-tools"></i> Built with Passion</div>
+                <h2><i class="fas fa-code"></i> Projects &amp; Achievements</h2>
+                <div class="line"></div>
+            </div>
+            <div class="projects-grid">
+                <div class="card project-card reveal-left">
+                    <div class="project-icon"><i class="fas fa-seedling"></i></div>
+                    <h4>IoT Smart Plant Irrigation &amp; Monitoring</h4>
+                    <p>Automated system for monitoring and irrigating plants using IoT. Data collected via sensors and displayed via app.</p>
+                    <span class="tech-tag"><i class="fas fa-microchip"></i> IoT · Arduino · Blynk</span>
+                </div>
+                <div class="card project-card reveal-right">
+                    <div class="project-icon"><i class="fas fa-globe"></i></div>
+                    <h4>Website Development (Blog &amp; Database)</h4>
+                    <p>Functional blog with admin/regular user roles. Database built with MySQL, frontend with Visual Studio.</p>
+                    <span class="tech-tag"><i class="fas fa-database"></i> MySQL · PHP · HTML/CSS</span>
+                </div>
+                <div class="card project-card reveal-left">
+                    <div class="project-icon"><i class="fas fa-lock"></i></div>
+                    <h4>Three-Level Authentication System</h4>
+                    <p>Login page with 3-level authentication built entirely with C++ in Visual Studio.</p>
+                    <span class="tech-tag"><i class="fas fa-code"></i> C++ · Visual Studio</span>
+                </div>
+                <div class="card project-card reveal-right">
+                    <div class="project-icon"><i class="fas fa-trophy"></i></div>
+                    <h4>Dean's List &amp; Academic Excellence</h4>
+                    <p>Dean's List for Semester 1 &amp; 2 (2021/2022). Ranked #1 among batch in 2020 at Maahad Tahfiz.</p>
+                    <span class="tech-tag"><i class="fas fa-star"></i> Academic Achievement</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section id="skills">
+        <div class="section-header reveal">
+            <div class="sub"><i class="fas fa-cog"></i> Expertise</div>
+            <h2><i class="fas fa-cogs"></i> Technical Skills</h2>
+            <div class="line"></div>
+        </div>
+        <div class="skills-wrapper">
+            <div class="card skill-category reveal-left">
+                <h4><i class="fas fa-code"></i> Programming &amp; Development</h4>
+                <div class="skill-tags">
+                    <span class="tag">C (Intermediate)</span>
+                    <span class="tag">C++ (Intermediate)</span>
+                    <span class="tag">PHP (Intermediate)</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">HTML/CSS</span>
+                    <span class="tag">JavaScript</span>
+                </div>
+            </div>
+            <div class="card skill-category reveal-right">
+                <h4><i class="fas fa-network-wired"></i> Networking &amp; Security</h4>
+                <div class="skill-tags">
+                    <span class="tag">CCNA (Switches &amp; Routers)</span>
+                    <span class="tag">Data Communication</span>
+                    <span class="tag">Cybersecurity</span>
+                    <span class="tag">Network Design</span>
+                    <span class="tag">Hardware Maintenance</span>
+                </div>
+            </div>
+            <div class="card skill-category reveal-left">
+                <h4><i class="fas fa-tools"></i> Tools &amp; Platforms</h4>
+                <div class="skill-tags">
+                    <span class="tag">Microsoft PowerPoint</span>
+                    <span class="tag">Microsoft Word</span>
+                    <span class="tag">Canva</span>
+                    <span class="tag">Visual Studio</span>
+                    <span class="tag">Arduino</span>
+                </div>
+            </div>
+            <div class="card skill-category reveal-right">
+                <h4><i class="fas fa-robot"></i> Emerging Tech</h4>
+                <div class="skill-tags">
+                    <span class="tag">IoT</span>
+                    <span class="tag">Data Science</span>
+                    <span class="tag">Object-Oriented Programming</span>
+                    <span class="tag">Electronic Instrumentation</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== VOLUNTEER ===== -->
+    <section id="volunteer" style="background:#f8f8f8;border-radius:0;max-width:100%;padding:80px 40px;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <div class="section-header reveal">
+                <div class="sub"><i class="fas fa-hands-helping"></i> Giving Back</div>
+                <h2><i class="fas fa-heart"></i> Volunteer &amp; Leadership</h2>
+                <div class="line"></div>
+            </div>
+            <div class="volunteer-grid">
+                <div class="card vol-card reveal-left">
+                    <div class="vol-icon"><i class="fas fa-utensils"></i></div>
+                    <div>
+                        <h4>Food Management Committee</h4>
+                        <p>Blood Donation Program 2021, UniMAP Lecture Hall.</p>
+                    </div>
+                </div>
+                <div class="card vol-card reveal-right">
+                    <div class="vol-icon"><i class="fas fa-bolt"></i></div>
+                    <div>
+                        <h4>Event Organizer – "ELEKTRONIK 101"</h4>
+                        <p>Introduced electronics to teenage students at SMK Perlis.</p>
+                    </div>
+                </div>
+                <div class="card vol-card reveal-left">
+                    <div class="vol-icon"><i class="fas fa-laptop"></i></div>
+                    <div>
+                        <h4>Intern – Pakar Laptop Hypercom Technology</h4>
+                        <p>Hands-on experience before completing Diploma.</p>
+                    </div>
+                </div>
+                <div class="card vol-card reveal-right">
+                    <div class="vol-icon"><i class="fas fa-palette"></i></div>
+                    <div>
+                        <h4>Infographic Contest</h4>
+                        <p>Participated in Nuzul Quran contest during Ramadan.</p>
+                    </div>
+                </div>
+                <div class="card vol-card reveal-left" style="grid-column:1/2;">
+                    <div class="vol-icon"><i class="fas fa-users"></i></div>
+                    <div>
+                        <h4>Leadership Roles</h4>
+                        <p>President (Multimedia Club 2020) · Secretary (Archery Club 2019–2020) · Academic Exco (BKP 2020/2021).</p>
+                    </div>
+                </div>
+                <div class="card vol-card reveal-right" style="grid-column:2/3;">
+                    <div class="vol-icon"><i class="fas fa-school"></i></div>
+                    <div>
+                        <h4>Primary &amp; Secondary Achievements</h4>
+                        <p>Secretary for TKRS, Best Booth ILKBS Career Day 2019, Best Student 2018, #1 batch 2020.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LANGUAGES ===== -->
+    <section id="languages">
+        <div class="section-header reveal">
+            <div class="sub"><i class="fas fa-comment"></i> Communication</div>
+            <h2><i class="fas fa-language"></i> Languages</h2>
+            <div class="line"></div>
+        </div>
+        <div class="lang-grid">
+            <div class="card lang-card reveal">
+                <i class="fas fa-flag"></i>
+                <h4>Bahasa Melayu</h4>
+                <div class="level">Fluent <span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                <p style="font-size:0.8rem;color:#888;margin-top:6px;">Written &amp; Spoken</p>
+            </div>
+            <div class="card lang-card reveal" style="transition-delay:0.1s;">
+                <i class="fas fa-flag-usa"></i>
+                <h4>English</h4>
+                <div class="level">Intermediate <span class="dot"></span><span class="dot"></span><span class="dot gray"></span></div>
+                <p style="font-size:0.8rem;color:#888;margin-top:6px;">Written Fluent · Spoken Intermediate</p>
+            </div>
+            <div class="card lang-card reveal" style="transition-delay:0.2s;">
+                <i class="fas fa-code"></i>
+                <h4>Technical English</h4>
+                <div class="level">Professional <span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                <p style="font-size:0.8rem;color:#888;margin-top:6px;">Documentation &amp; Presentations</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CERTIFICATES ===== -->
+    <section id="certificates" style="background:#f8f8f8;border-radius:0;max-width:100%;padding:80px 40px;">
+        <div style="max-width:1200px;margin:0 auto;">
+            <div class="section-header reveal">
+                <div class="sub"><i class="fas fa-award"></i> Credentials</div>
+                <h2><i class="fas fa-certificate"></i> Professional Certificates</h2>
+                <div class="line"></div>
+            </div>
+            <div class="cert-grid">
+                <div class="card cert-card reveal">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>CCNA: Switches &amp; Routers</h4>
+                    <a href="https://www.credly.com/badges/b43cd0e9-4d46-4f90-9d4d-01fc497e0235" target="_blank"><i class="fas fa-external-link-alt"></i> View Badge</a>
+                </div>
+                <div class="card cert-card reveal" style="transition-delay:0.1s;">
+                    <i class="fas fa-lock"></i>
+                    <h4>Introduction to Cybersecurity</h4>
+                    <a href="https://www.credly.com/badges/b5aa65ad-d46c-45f1-84e1-d18104af2abf" target="_blank"><i class="fas fa-external-link-alt"></i> View Badge</a>
+                </div>
+                <div class="card cert-card reveal" style="transition-delay:0.2s;">
+                    <i class="fas fa-wifi"></i>
+                    <h4>Introduction to IoT</h4>
+                    <a href="https://www.credly.com/badges/7991eac9-9329-4e5f-8fc6-ad54e95fbfce" target="_blank"><i class="fas fa-external-link-alt"></i> View Badge</a>
+                </div>
+                <div class="card cert-card reveal" style="transition-delay:0.05s;">
+                    <i class="fas fa-chart-bar"></i>
+                    <h4>Introduction to Data Science</h4>
+                    <a href="https://www.credly.com/badges/4398672c-8133-45a7-92c7-6e8e36abfb85" target="_blank"><i class="fas fa-external-link-alt"></i> View Badge</a>
+                </div>
+                <div class="card cert-card reveal" style="transition-delay:0.15s;">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h4>Cisco Learn-A-Thon</h4>
+                    <a href="https://www.credly.com/badges/6132995e-9a08-4421-b16dbc50703a634a" target="_blank"><i class="fas fa-external-link-alt"></i> View Badge</a>
+                </div>
+                <div class="card cert-card reveal" style="transition-delay:0.25s;">
+                    <i class="fas fa-crown"></i>
+                    <h4>Olympiad Math (National) 2017</h4>
+                    <p style="font-size:0.8rem;color:#888;margin-top:6px;">Participant · National Level</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== REFERENCES ===== -->
+    <section id="references">
+        <div class="section-header reveal">
+            <div class="sub"><i class="fas fa-address-book"></i> Connect</div>
+            <h2><i class="fas fa-address-card"></i> References</h2>
+            <div class="line"></div>
+        </div>
+        <div class="ref-grid">
+            <div class="card ref-card reveal-left">
+                <div class="ref-avatar"><i class="fas fa-user-tie"></i></div>
+                <div>
+                    <h4>Pn. Fazlina Binti Farid</h4>
+                    <div class="title">Industrial Training Coordinator</div>
+                    <div class="title" style="color:var(--kia-gray);font-size:0.8rem;">FKTEN, Universiti Malaysia Perlis</div>
+                    <div class="contact"><i class="fas fa-phone"></i> (+60) 124152505</div>
+                    <div class="contact"><i class="fas fa-envelope"></i> fazlinafarid@unimap.edu.my</div>
+                </div>
+            </div>
+            <div class="card ref-card reveal-right">
+                <div class="ref-avatar" style="background:var(--kia-black);"><i class="fas fa-university"></i></div>
+                <div>
+                    <h4>Universiti Malaysia Perlis</h4>
+                    <div class="title">Faculty of Electronic Engineering Technology</div>
+                    <div class="contact"><i class="fas fa-map-pin"></i> UniMAP, Perlis</div>
+                    <div class="contact"><i class="fas fa-globe"></i> <a href="#" style="color:var(--kia-red);text-decoration:none;">www.unimap.edu.my</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-logo"><i class="fas fa-car"></i> KIA <span>·</span> CV</div>
+        <div class="socials">
+            <a href="https://www.linkedin.com/in/mohamad-ibrahim-adham-bin-rohaidi-83619a291" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+        <div class="copy">
+            &copy; 2026 Mohamad Ibrahim Adham &middot; Built with <i class="fas fa-heart"></i> &amp; <i class="fas fa-car-side"></i> KIA spirit
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        // ---- PRELOADER ----
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.classList.add('hidden');
+            }, 800);
+        });
+
+        // ---- NAV TOGGLE ----
+        const toggle = document.getElementById('navToggle');
+        const menu = document.getElementById('navMenu');
+        toggle.addEventListener('click', function() {
+            menu.classList.toggle('open');
+        });
+        // close on link click
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', () => menu.classList.remove('open'));
+        });
+
+        // ---- SCROLL REVEAL ----
+        const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+
+        function checkReveals() {
+            const windowHeight = window.innerHeight;
+            const revealPoint = 120;
+            reveals.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < windowHeight - revealPoint) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkReveals);
+        window.addEventListener('load', checkReveals);
+
+        // ---- NAVBAR SHADOW ON SCROLL ----
+        const nav = document.getElementById('navbar');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 60) {
+                nav.style.boxShadow = '0 4px 40px rgba(0,0,0,0.5)';
+            } else {
+                nav.style.boxShadow = '0 2px 30px rgba(0,0,0,0.25)';
+            }
+        });
+
+        // ---- SMOOTH ANCHOR SCROLL ----
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ---- ROAD LINES DYNAMIC ----
+        // already animated with CSS
+        console.log('🏎️ KIA CV — Driven by Excellence');
+    </script>
+</body>
+</html>
